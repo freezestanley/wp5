@@ -8,11 +8,23 @@ const base = require('./base.config')
 
 module.exports = merge(base, {
   devtool: 'eval-cheap-module-source-map',
+  optimization: {
+    usedExports: true,
+  },
   devServer: {
     port: 3000,
-    watchContentBase: true
+    watchContentBase: true,
+    hot: true,
+  },
+  output: {
+    path: path.join(__dirname, '../dist'),
+    filename: '[name].bundle.js'
+  },
+  cache: {
+    type: 'memory'
   },
   plugins: [
+    new Webpack.HotModuleReplacementPlugin(),
     new Webpack.DefinePlugin({
       TYPE: JSON.stringify({
         name: 'this is dev'
