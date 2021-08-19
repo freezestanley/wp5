@@ -4,7 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const miniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const threadLoader = require('thread-loader');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const isEnvProduction =
   process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development";
@@ -103,27 +105,28 @@ module.exports = {
             loader: "less-loader",
             options: {
               sourceMap: false,
+              lessOptions: { javascriptEnabled: true }
             },
           }
         ]
       },
       {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-        // More information here https://webpack.js.org/guides/asset-modules/
-        type: "asset/resource",
+        type: "asset",
         parser: {
           dataUrlCondition: {
-            maxSize: 4 * 1024, // 4kb
+            maxSize: 10 * 1024, // 4kb
           },
         },
       }
     ]
   },
   plugins: [
+    new ProgressBarPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: "Hello React!",
-      template: './src/index.html',
+      template: './public/index.html',
       minify: {
         collapseWhitespace:true,
         removeComments:true
@@ -141,8 +144,22 @@ module.exports = {
       },
       canPrint: true
     }),
-    new Webpack.ProvidePlugin({
+    new Webpack.ProvidePlugin({ // shimming
       _: 'lodash',
-    })
+    }),
+    // 拷贝public中的文件到最终打包文件夹里
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "./public/**/*",
+          to: "./",
+          globOptions: {
+            ignore: ["**/favicon.png", "**/index.html", "**/*.less", "**/*.sass"],
+          },
+          noErrorOnMissing: true,
+        },
+      ],
+    }),
   ]
 }
+

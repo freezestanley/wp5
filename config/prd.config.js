@@ -21,7 +21,7 @@ let prd = merge(base, {
     minimizer: [
       new TerserPlugin({
         parallel: true, // 是否并行打包
-        extractComments: "all",
+        extractComments: false,
       }),
     ],
     runtimeChunk: {
@@ -64,7 +64,12 @@ let prd = merge(base, {
     assetModuleFilename: 'images/[hash][ext][query]'
   },
   plugins: [
-    new CompressionPlugin(),
+    new CompressionPlugin(
+      {
+        compressionOptions: { level: 1 },
+        threshold: 1024 * 0,
+      }
+    ),
     new Webpack.DefinePlugin({
       TYPE: JSON.stringify({
         name: 'this is prd'
