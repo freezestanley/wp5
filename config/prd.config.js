@@ -8,6 +8,7 @@ const TerserPlugin = require("terser-webpack-plugin")
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CompressionPlugin = require("compression-webpack-plugin")
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin")
+const ImageminWebpWebpackPlugin= require("imagemin-webp-webpack-plugin")
 
 const { merge } = require('webpack-merge')
 const base = require('./base.config')
@@ -20,6 +21,7 @@ let prd = merge(base, {
     minimizer: [
       new TerserPlugin({
         parallel: true, // 是否并行打包
+        extractComments: "all",
       }),
     ],
     runtimeChunk: {
@@ -59,6 +61,7 @@ let prd = merge(base, {
     path: path.join(__dirname, '../dist'),
     // publicPath: 'https://cdn.example.com/assets/[fullhash]/',  // open cdn
     filename: '[name].[contenthash:8].bundle.js',
+    assetModuleFilename: 'images/[hash][ext][query]'
   },
   plugins: [
     new CompressionPlugin(),
@@ -67,10 +70,18 @@ let prd = merge(base, {
         name: 'this is prd'
       })
     }),
-    new BundleAnalyzerPlugin(),
+    new ImageminWebpWebpackPlugin({
+      config: [{
+        test: /\.(jpe?g|png)/,
+        options: {
+          quality:  75
+        }
+      }],
+      overrideExtension: true,
+      detailedLogs: false,
+      silent: false,
+      strict: true
+    }),
   ]
 })
-// const smp = new SpeedMeasurePlugin()
-// prd = smp.wrap(prd)
-
 module.exports = prd

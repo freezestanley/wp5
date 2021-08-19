@@ -41,7 +41,17 @@ module.exports = {
         test: /\.css$/,
         use: [
           isEnvProduction ? miniCssExtractPlugin.loader : "style-loader",
-          'css-loader',
+          {
+            loader: "css-loader",
+            options: {
+              url: true,
+              import: true,
+              sourceMap: false,
+              modules: {
+                localIdentName: "[path][local]-[hash:base64:5]"
+              }
+            }
+          },
           'postcss-loader'
         ]
       },
@@ -49,7 +59,17 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           isEnvProduction ? miniCssExtractPlugin.loader : "style-loader",
-          'css-loader',
+          {
+            loader: "css-loader",
+            options: {
+              url: true,
+              import: true,
+              sourceMap: false,
+              modules: {
+                localIdentName: "[path][local]-[hash:base64:5]"
+              }
+            }
+          },
           'postcss-loader',
           {
             loader: "sass-loader",
@@ -66,8 +86,18 @@ module.exports = {
       {
         test: /\.less$/i,
         use: [
-          isEnvProduction ? miniCssExtractPlugin.loader : "style-loader",
-          "css-loader",
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: false,
+              url: true,
+              import: true,
+              modules: {
+                localIdentName: "[path][local]-[hash:base64:5]"
+              }
+            }
+          },
           'postcss-loader',
           {
             loader: "less-loader",
@@ -78,15 +108,15 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|png|gif)$/,
-        exclude: /node_modules/,
-        loader: "url-loader",
-        options: {
-            limit: 10 * 1024,
-            esModule: false, //必须添加的参数
-            name: "[hash:10].[ext]"
-        }
-      },
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+        // More information here https://webpack.js.org/guides/asset-modules/
+        type: "asset/resource",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024, // 4kb
+          },
+        },
+      }
     ]
   },
   plugins: [
@@ -110,6 +140,9 @@ module.exports = {
         preset: ['default', { discardComments: { removeAll: true } }],
       },
       canPrint: true
+    }),
+    new Webpack.ProvidePlugin({
+      _: 'lodash',
     })
   ]
 }

@@ -1,11 +1,14 @@
 import React from "react"
+import Style from "./style.less"
 
 function App() {
-    return (<div>
-        <h1>hhhhjkjhkjhkj</h1>
-        <h2>Welcome to React App</h2>
-        <h3>Date: {new Date().toDateString()}</h3>
-    </div>)
+    return (
+        <div className={Style.test}>
+            <h1>hhhhjkjhkjhkj</h1>
+            <h2>Welcome to React App</h2>
+            <h3>Date: {new Date().toDateString()}</h3>
+        </div>
+    )
 }
 
 export default App
