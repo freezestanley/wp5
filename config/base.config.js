@@ -3,10 +3,12 @@ const Webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const miniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const threadLoader = require('thread-loader');
-const CopyPlugin = require("copy-webpack-plugin");
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const threadLoader = require('thread-loader')
+// const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const CopyPlugin = require("copy-webpack-plugin")
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isEnvProduction =
   process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development";
@@ -88,7 +90,7 @@ module.exports = {
       {
         test: /\.less$/i,
         use: [
-          "style-loader",
+          isEnvProduction ? miniCssExtractPlugin.loader : "style-loader",
           {
             loader: "css-loader",
             options: {
@@ -107,6 +109,13 @@ module.exports = {
               sourceMap: false,
               lessOptions: { javascriptEnabled: true }
             },
+          },
+          {
+            loader: 'style-resources-loader',
+            options: {
+                patterns: path.resolve(__dirname, '../theme/variables/index.less'),
+                injector: 'append'
+            }
           }
         ]
       },
@@ -160,6 +169,18 @@ module.exports = {
         },
       ],
     }),
-  ]
+    // new FaviconsWebpackPlugin('./public/a.png')
+    // new ESLintPlugin({
+    //   fix: true
+    // })
+  ],
+  resolve: {
+    extensions: [".js", ".ts", ".tsx", ".jsx", ".less", ".css", ".wasm", ".sass", ".scss"], // 后缀名自动补全
+    alias: {
+      "@": path.resolve(__dirname, "../src"),
+      "@T": path.resolve(__dirname, "../theme"),
+      "@U": path.resolve(__dirname, "../utils"),
+    },
+  },
 }
 

@@ -17,6 +17,7 @@ const base = require('./base.config')
 let prd = merge(base, {
   devtool: 'nosources-source-map',
   optimization: {
+    usedExports: true,
     minimize: true,
     minimizer: [
       new TerserPlugin({
@@ -34,11 +35,19 @@ let prd = merge(base, {
       maxInitialRequests: 3,
       name: false,
       cacheGroups: {
+        vendors: {
+          name: 'vendors',
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          chunks: 'initial'
+        },
         commons: {
-          chunks: 'initial',
-          minChunks: 2,
-          maxInitialRequests: 5,
           name: 'commons',
+          minChunks: 2,
+          priority: -20,
+          chunks: 'initial',
+          maxInitialRequests: 5,
+          reuseExistingChunk: true
         },
       },
       //最小的文件大小 超过之后将不予打包
@@ -66,8 +75,10 @@ let prd = merge(base, {
   plugins: [
     new CompressionPlugin(
       {
+        algorithm: 'gzip',
         compressionOptions: { level: 1 },
         threshold: 1024 * 0,
+        minRatio: 0.7
       }
     ),
     new Webpack.DefinePlugin({
