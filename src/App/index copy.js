@@ -1,13 +1,13 @@
 import React from 'react'
-import Style from './style.less'
+import './style.less'
 
 function App() {
   return (
-    <div className={Style.test}>
+    <div styleName='test'>
       <h1>hhhhjkjhkjhkj</h1>
       <h2>Welcome to React App</h2>
       <h3>Date: {new Date().toDateString()}</h3>
-      <span class={Style.iconfont}>&#xe871;</span>
+      <span styleName='iconfont'>&#xe871;</span>
     </div>
   )
 }

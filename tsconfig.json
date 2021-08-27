@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+      "allowJs": true,
+      "jsx": "react",
+      "removeComments": true,
+      "skipLibCheck": true,
+      "skipDefaultLibCheck": true,
+      "strict": true,
+      "baseUrl": "./src",
+      "outDir": "./dist",
+      "forceConsistentCasingInFileNames": true,
+      "experimentalDecorators": true,
+      "esModuleInterop": true,
+      "target": "es5",
+      "lib": [
+          "es6",
+          "dom",
+          "ESNext"
+      ],
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "typeRoots": ["typings", "./node_modules/@types"],
+      "paths": {
+          "@":["src"],
+          "@T": ["theme"],
+          "@U": ["utils"]
+      },
+      "emitDecoratorMetadata": true
+  },
+  "include": [
+      "src",
+      "types/index.d.ts"
+  ],
+  "exclude": [
+      "node_modules",
+      "config/*",
+  ]
+}

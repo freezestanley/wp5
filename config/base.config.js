@@ -8,7 +8,8 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const threadLoader = require('thread-loader')
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const CopyPlugin = require("copy-webpack-plugin")
-const ESLintPlugin = require('eslint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const isEnvProduction =
   process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development";
@@ -19,10 +20,35 @@ module.exports = {
   },
   entry: {
     vendor: ['react', 'react-dom'],
-    app: './src/index.js',
+    app: './src/index.tsx',
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [
+          // {
+          //   loader: 'thread-loader',
+          //   options: {
+          //     workers: require('os').cpus(),
+          //   }
+          // },
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true
+            }
+          }
+          // ,
+          // {
+          //   loader: 'babel-loader',
+          //   options: {
+          //     cacheDirectory: true
+          //   }
+          // }
+        ]
+      },
       {
         test: /\.(js|jsx|mjs)$/,
         exclude: /node_modules/,
@@ -141,6 +167,7 @@ module.exports = {
         removeComments:true
       }
     }),
+    new ForkTsCheckerWebpackPlugin(), // ts
     new miniCssExtractPlugin({
       filename: 'styles/[name].css',
       chunkFilename: 'styles/[id].css'
