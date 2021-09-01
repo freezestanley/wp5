@@ -1,68 +1,60 @@
-
-// {
-//   /*
-//    * @description 编译器配置
-//    * @param tabSize 默认tab为两个空格
-//    * @param formatOnSave 保存时自动修复
-//    */
-//   "editor.tabSize": 2,
-//   // 保存时自动格式化
-//   "editor.formatOnSave": true,
-//   "editor.codeActionsOnSave": {
-//     "source.fixAll.eslint": true
-//   },
-//   "editor.codeActionsOnSaveTimeout": 5000,
-//   // 开启 vscode 文件路径导航
-//   "breadcrumbs.enabled": true,
-//   // prettier 设置语句末尾不加分号
-//   "prettier.semi": false,
-//   // prettier 设置强制单引号
-//   "prettier.singleQuote": true,
-//   /*
-//    * @description eslint 配置
-//    * @param alwaysShowStatus 配置
-//    * @param autoFixOnSave 保存时自动修复
-//    * @param validate 在vue中添加错误提示
-//    */
-//   "eslint.alwaysShowStatus": true,
-//   "eslint.validate": [
-//     "javascript",
-//     "javascriptreact",
-//     "html",
-//     { "language": "html", "autoFix": true },
-//   ],
-//   /*
-//    * @description tslint 配置
-//    * @param autoFixOnSave 保存时自动修复
-//    * @param alwaysShowRuleFailuresAsWarnings 所有特征都是用 Warnings
-//    */
-//   "tslint.autoFixOnSave": true,
-//   "tslint.alwaysShowRuleFailuresAsWarnings": true,
-//   /*
-//    * @description stylelint 配置
-//    * @param autoFixOnSave 保存时自动修复
-//    */
-//   "stylelint.autoFixOnSave": true,
-//   /*
-//    * @description 配置编辑器设置以覆盖某种语言
-//    */
-//   "[typescript]": {
-//     // "editor.defaultFormatter": "esbenp.prettier-vscode"
-//     "editor.defaultFormatter": "eg2.tslint"
-//   },
-//   "[html]": {
-//     "editor.defaultFormatter": "esbenp.prettier-vscode"
-//   },
-//   "[jsonc]": {
-//     "editor.defaultFormatter": "esbenp.prettier-vscode"
-//   },
-//   "[json]": {
-//     "editor.defaultFormatter": "esbenp.prettier-vscode"
-//   },
-//   "[javascript]": {
-//     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-//   },
-//   "[javascriptreact]": {
-//     "editor.defaultFormatter": "esbenp.prettier-vscode"
-//   }
-// }
+{
+  "editor.tabSize": 2,
+  // 保存时自动格式化
+  "editor.codeActionsOnSave":
+  {
+    "source.fixAll.eslint": true
+  },
+  "editor.codeActionsOnSaveTimeout": 5000,
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,//让函数(名)和后面的括号之间加个空格
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  "js-beautify-html": {
+    "wrap_attributes": "force-aligned" //属性强制折行对齐
+  },
+  "git.autofetch": true,
+  "files.autoSave": "onFocusChange",
+  "javascript.format.enable": true,
+  //eslint 格式化插件，保存时应用eslint规则自动格式化后保存
+  "prettier.eslintIntegration": true,
+  // 去掉代码结尾分号
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "breadcrumbs.enabled": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".vue",
+      ".ts",
+      ".jsx"
+    ]
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue-html",
+    "html",
+    "react"
+  ],
+  "eslint.run": "onSave",
+  "editor.suggestSelection": "first",
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+}

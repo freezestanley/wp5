@@ -146,7 +146,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+        test: /\.(png|jpe?g|gif|svg|bmp|eot|ttf|woff|woff2)$/i,
         type: "asset",
         parser: {
           dataUrlCondition: {
@@ -196,10 +196,12 @@ module.exports = {
         },
       ],
     }),
+    new ESLintPlugin({
+      fix: true,
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+      exclude: ['node_modules', 'config', 'public']
+    })
     // new FaviconsWebpackPlugin('./public/a.png')
-    // new ESLintPlugin({
-    //   fix: true
-    // })
   ],
   resolve: {
     extensions: [".js", ".ts", ".tsx", ".jsx", ".less", ".css", ".wasm", ".sass", ".scss"], // 后缀名自动补全
