@@ -5,6 +5,7 @@ module.exports = {
   plugins: ['stylelint-order', 'stylelint-prettier'],
   rules: {
     'prettier/prettier': [true, { singleQuote: true, tabWidth: 4 }],
+    'max-empty-lines': 2,
     // indentation: 2
     // 'block-no-empty': true, // 禁止出现空块
     // 'declaration-empty-line-before': 'never', // 要求或禁止在声明语句之前有空行。
