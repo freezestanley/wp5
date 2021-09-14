@@ -9,11 +9,16 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react/jsx-runtime"
   ],
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint", "react", "react-hooks", "prettier"],
   settings: {
+    react: {
+      pragma: "React",
+      version: "detect"
+    },
     'import/resolver': {
       alias: {
         map: [

@@ -9,7 +9,14 @@ node_modules
 postcss.config.js
 commitlint.config.js
 .eslintrc.json
-
+.vscode
+.gitignore
+.editorconfig
+.eslintrc.js
+.prettierignore
+.prettierrc.js
+package.json
+postcss.config.js
 # react-daterange-picker
 # react-date-range
 # rmc-calendar@1.1.4

@@ -1,0 +1,7 @@
+[defaults]
+url=sentry服务的url
+project = 项目名字
+org= 项目组织
+
+[auth]
+token=api token
