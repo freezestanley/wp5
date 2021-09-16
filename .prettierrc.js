@@ -33,8 +33,8 @@ module.exports = {
   // 根据显示样式决定 html 要不要折行
   htmlWhitespaceSensitivity: 'css',
   // 换行符使用 lf
-  endOfLine: 'lf',
+  endOfLine: 'lf'
   // // 代码的解析引擎，默认为babylon，与babel相同。
   // parser: "babel"
-  ignorePath: '.prettierignore'
+  // ignorePath: '.prettierignore'
 }
