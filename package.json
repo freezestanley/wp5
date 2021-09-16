@@ -24,6 +24,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,css,less,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx}": "npm run lint-staged:js"
+  },
   "dependencies": {
     "lodash": "^4.17.21",
     "react": "^17.0.2",
