@@ -11,7 +11,7 @@ function App() {
       <h2>Welcome to React App</h2>
       <h3>Date: {new Date().toDateString()}</h3>
       <span className={Style.iconfont}>&#xe871;</span>
-      <div>test</div>
+      <div>tes11t</div>
     </div>
   )
 }
