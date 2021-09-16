@@ -3,7 +3,6 @@ import Style from './style.less'
 
 function App() {
   let a = ['a', 'b']
-  asdfasf
   return (
     <div className={Style.test}>
       <h1>123123阿斯顿发生</h1>
