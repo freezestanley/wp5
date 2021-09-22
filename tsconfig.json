@@ -29,7 +29,8 @@
   },
   "include": [
       "src",
-      "types/index.d.ts"
+      "types/index.d.ts",
+      "types/less.d.ts"
   ],
   "exclude": [
       "node_modules",
