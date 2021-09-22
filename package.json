@@ -13,7 +13,7 @@
     "serve": "cross-env NODE_ENV=development webpack serve --hot-only --open 'Google Chrome' --mode development -c ./config/dev.config.js",
     "build": "cross-env NODE_ENV=production webpack --mode production -c ./config/prd.config.js",
     "analy": "cross-env NODE_ENV=analysize webpack --mode production -c ./config/analy.config.js",
-    "prettier": "prettier --write './src/**/*.js' './src/**/*.tsx' './src/**/*.ts' './src/**/*.less'",
+    "prettier": "prettier --write './src/**/*.js' './src/**/*.tsx' './src/**/*.less'",
     "lint-staged": "npm run lint-staged:js && npm run lint:style && npm run prettier",
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx  ./src",
     "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src && npm run lint:style",
