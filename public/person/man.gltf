@@ -1,0 +1,162 @@
+{
+  "accessors": [
+    {
+      "name": "Group29362_1_0_positions",
+      "componentType": 5126,
+      "count": 107116,
+      "min": [
+        -0.7926948666572571,
+        -0.8765588998794556,
+        -0.04659740999341011
+      ],
+      "max": [
+        0.7565447688102722,
+        1.6617485284805298,
+        1.0770853757858276
+      ],
+      "type": "VEC3",
+      "bufferView": 0,
+      "byteOffset": 0
+    },
+    {
+      "name": "Group29362_1_0_texcoords",
+      "componentType": 5126,
+      "count": 107116,
+      "min": [
+        0.11495999991893768,
+        0.03516000136733055
+      ],
+      "max": [
+        0.9059399962425232,
+        0.9407399892807007
+      ],
+      "type": "VEC2",
+      "bufferView": 1,
+      "byteOffset": 0
+    },
+    {
+      "name": "Group29362_1_0_indices",
+      "componentType": 5125,
+      "count": 622437,
+      "min": [
+        0
+      ],
+      "max": [
+        107115
+      ],
+      "type": "SCALAR",
+      "bufferView": 2,
+      "byteOffset": 0
+    }
+  ],
+  "asset": {
+    "generator": "obj2gltf",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "name": "PM3D_0928男性1",
+      "byteLength": 4632068,
+      "uri": "man.bin"
+    }
+  ],
+  "bufferViews": [
+    {
+      "name": "bufferView_0",
+      "buffer": 0,
+      "byteLength": 1285392,
+      "byteOffset": 0,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "name": "bufferView_1",
+      "buffer": 0,
+      "byteLength": 856928,
+      "byteOffset": 1285392,
+      "byteStride": 8,
+      "target": 34962
+    },
+    {
+      "name": "bufferView_2",
+      "buffer": 0,
+      "byteLength": 2489748,
+      "byteOffset": 2142320,
+      "target": 34963
+    }
+  ],
+  "images": [
+    {
+      "name": "PM3D_0928男性1",
+      "uri": "man.bmp"
+    }
+  ],
+  "materials": [
+    {
+      "name": "defaultMat",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      },
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "doubleSided": false
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Group29362_1",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "TEXCOORD_0": 1
+          },
+          "indices": 2,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "Group29362",
+      "mesh": 0
+    }
+  ],
+  "samplers": [
+    {
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "PM3D_0928男性1",
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}
