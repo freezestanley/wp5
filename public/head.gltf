@@ -3,16 +3,16 @@
     {
       "name": "Group48944_1_0_positions",
       "componentType": 5126,
-      "count": 911807,
+      "count": 57095,
       "min": [
-        -1.0011122226715088,
-        -0.7701750993728638,
-        -0.5633100271224976
+        -1.0015387535095215,
+        -0.7702999114990234,
+        -0.5637462139129639
       ],
       "max": [
-        1.0001845359802246,
-        0.7723819017410278,
-        0.5653605461120605
+        1.0008058547973633,
+        0.7725183963775635,
+        0.5654220581054688
       ],
       "type": "VEC3",
       "bufferView": 0,
@@ -20,13 +20,13 @@
     },
     {
       "name": "Group48944_1_0_indices",
-      "componentType": 5125,
-      "count": 5467392,
+      "componentType": 5123,
+      "count": 341712,
       "min": [
         0
       ],
       "max": [
-        911806
+        57094
       ],
       "type": "SCALAR",
       "bufferView": 1,
@@ -40,7 +40,7 @@
   "buffers": [
     {
       "name": "head",
-      "byteLength": 32811252,
+      "byteLength": 1368564,
       "uri": "head.bin"
     }
   ],
@@ -48,7 +48,7 @@
     {
       "name": "bufferView_0",
       "buffer": 0,
-      "byteLength": 10941684,
+      "byteLength": 685140,
       "byteOffset": 0,
       "byteStride": 12,
       "target": 34962
@@ -56,8 +56,8 @@
     {
       "name": "bufferView_1",
       "buffer": 0,
-      "byteLength": 21869568,
-      "byteOffset": 10941684,
+      "byteLength": 683424,
+      "byteOffset": 685140,
       "target": 34963
     }
   ],
