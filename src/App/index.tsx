@@ -15,7 +15,7 @@ import { Suspense } from 'react'
 import Style from './styles/index.less'
 
 const Model = () => {
-  const gltf = useLoader(GLTFLoader, './public/head.gltf')
+  const gltf = useLoader(GLTFLoader, './public/point.gltf')
   return (
     <>
       <primitive object={gltf.scene} />
