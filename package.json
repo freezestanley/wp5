@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "serve": "cross-env NODE_ENV=development webpack serve -c ./config/dev.config.js",
-    "build": "cross-env NODE_ENV=production webpack-dashboard -- webpack -c ./config/prd.config.js",
+    "build": "cross-env NODE_ENV=production webpack -c ./config/prd.config.js",
+    "dashboard-build": "cross-env NODE_ENV=production webpack-dashboard -- webpack -c ./config/prd.config.js",
     "analy": "cross-env NODE_ENV=analysize webpack-dashboard -- webpack -c ./config/analy.config.js",
     "prettier": "prettier --write './src/**/*.tsx' './src/**/*.less'",
     "lint-staged": "npm run lint-staged:js && npm run lint:style && npm run prettier",
