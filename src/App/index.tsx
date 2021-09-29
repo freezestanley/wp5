@@ -24,6 +24,7 @@ const Model = () => {
 }
 
 export default function App() {
+  // ssss
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
   const light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1)
   return (
