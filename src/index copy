@@ -1,0 +1,17 @@
+import React from 'react'
+import ReactDom from 'react-dom'
+import Box from './App'
+import '@T/index.less'
+import { Canvas } from '@react-three/fiber'
+
+ReactDom.render(
+  <Canvas>
+    <ambientLight />
+    <pointLight position={[10, 10, 10]} />
+    <mesh>
+      <sphereBufferGeometry />
+      <meshStandardMaterial color="hotpink" />
+    </mesh>
+  </Canvas>,
+  document.getElementById('app')
+)
